@@ -8,14 +8,17 @@
         :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; --text: #ffffff; --grey: #1a1a1a; }
         html { scroll-behavior: smooth; }
         body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .container { max-width: 500px; margin: auto; padding-top: 50px; }
+        .container { max-width: 500px; margin: auto; padding-top: 20px; }
+        
+        /* Navigation Menu */
+        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.75rem; font-weight: bold; border: 1px solid var(--cyan); padding: 8px 12px; border-radius: 5px; text-transform: uppercase; transition: 0.3s; }
+        .nav-link:hover { background: var(--cyan); color: #000; }
 
         h1 { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); font-size: 2.5rem; margin-bottom: 0px; text-transform: uppercase; }
-        h2 { color: var(--cyan); text-transform: uppercase; font-size: 1.2rem; letter-spacing: 2px; margin-top: 0; }
         .subtitle { color: var(--magenta); font-weight: bold; font-size: 1.4rem; margin-top: 5px; margin-bottom: 30px; letter-spacing: 1px; }
 
-        .bio, .info-section { background: #111; border: 1px solid #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; line-height: 1.5; text-align: left; }
-        .bio { text-align: center; }
+        .bio { background: #111; border: 1px solid #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; line-height: 1.5; }
 
         .btn {
             display: block;
@@ -28,97 +31,26 @@
             font-weight: bold;
             border-radius: 50px;
             transition: 0.3s;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
             text-transform: uppercase;
         }
         .btn:hover { background: var(--cyan); color: #000; box-shadow: 0 0 20px var(--cyan); }
         .btn-fb { border-color: var(--magenta); color: var(--magenta); }
         .btn-fb:hover { background: var(--magenta); color: #000; box-shadow: 0 0 20px var(--magenta); }
 
-        .store-grid { display: flex; gap: 10px; margin-bottom: 15px; }
-        .store-item {
-            flex: 1;
-            background: #111;
-            border: 1px solid var(--cyan);
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
-        }
-        .item-name { font-size: 0.8rem; font-weight: bold; color: var(--text); display: block; margin-bottom: 5px; }
-        .item-price { color: var(--magenta); font-size: 1.5rem; font-weight: bold; display: block; margin-bottom: 10px; text-shadow: 0 0 5px var(--magenta); }
-        .buy-now {
-            background: var(--cyan);
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.7rem;
-            padding: 8px;
-            display: block;
-            border-radius: 5px;
-            text-transform: uppercase;
-        }
-        .wa-btn {
-            display: block;
-            background: #25D366;
-            color: #fff;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
-        }
-
-        /* Scheduling Buttons */
-        .schedule-btn {
-            display: inline-block;
-            width: 45%;
-            background: none;
-            border: 1px solid var(--magenta);
-            color: var(--magenta);
-            padding: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.7rem;
-            border-radius: 5px;
-            text-transform: uppercase;
-            margin-top: 10px;
-        }
-
-        .policy-item { border-left: 3px solid var(--magenta); padding-left: 15px; margin-bottom: 15px; }
-        .policy-item strong { color: var(--magenta); display: block; margin-bottom: 5px; }
-
-        .address { font-size: 0.8rem; color: #666; margin-top: 40px; margin-bottom: 60px; line-height: 1.6; }
-
-        .visitor-counter {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            font-size: 10px;
-            color: #444;
-            text-align: right;
-            background: rgba(0,0,0,0.7);
-            padding: 5px;
-            border-radius: 5px;
-        }
-        .visitor-counter img { opacity: 0.8; }
-
-        .back-btn {
-            display: inline-block;
-            color: var(--magenta);
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            border-bottom: 1px solid var(--magenta);
-            padding-bottom: 2px;
-        }
+        .address { font-size: 0.8rem; color: #666; margin-top: 40px; margin-bottom: 20px; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-<div class="container" id="home">
+<div class="container">
+    <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="web-design.html" class="nav-link">Web Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="/admin/" class="nav-link" style="border-color: var(--magenta); color: var(--magenta);">Admin</a>
+    </nav>
+
     <h1>GIGLIFE GAMING</h1>
     <div class="subtitle">Computer Services</div>
 
@@ -127,88 +59,16 @@
         High-performance gaming builds and enterprise-standard refurbishing.
     </div>
 
-    <a href="https://www.facebook.com/marketplace/profile/100047045821380/" class="btn btn-fb">
-        📦 VIEW FULL FACEBOOK INVENTORY
-    </a>
-    <a href="mailto:giglifegaming@tutamail.com?subject=PC Repair and Service Inquiry" class="btn">
-        🔧 PC REPAIR & SERVICE
-    </a>
-    <a href="tel:6232794861" class="btn">
-        📞 CALL / TEXT NOW
-    </a>
-    <a href="#about" class="btn btn-fb">
-        📖 ABOUT & WARRANTY INFO
-    </a>
-
-    <h2 style="margin-top: 40px; font-size: 1rem;">Current Budget Stock</h2>
-    <div class="store-grid">
-        <div class="store-item">
-            <span class="item-name">Refurbished Desktop PC</span>
-            <span class="item-price">$40</span>
-            <a href="https://cash.app/$GigLifeGaming/40" class="buy-now">Buy via Cash App</a>
-        </div>
-        <div class="store-item">
-            <span class="item-name">Refurbished Laptop</span>
-            <span class="item-price">$40</span>
-            <a href="https://cash.app/$GigLifeGaming/40" class="buy-now">Buy via Cash App</a>
-        </div>
-    </div>
-
-    <a href="https://wa.me/16232794861?text=I%20have%20a%20question%20about%20your%20inventory" class="wa-btn">
-        💬 WHATSAPP QUESTIONS
-    </a>
-
-    <hr style="border: 0; border-top: 1px solid #222; margin: 40px 0;">
-
-    <div class="info-section">
-        <h2 style="color: var(--magenta);">Hours of Operation</h2>
-        <p><strong>Delivery & Services:</strong> 8:00 AM - 4:00 PM (Mon-Sat)</p>
-        <p><strong>Local Pickup:</strong> 8:00 AM - 8:00 PM (Mon-Sun, When Available)</p>
-
-        <div style="text-align: center;">
-            <a href="sms:+16232794861?body=I%20would%20like%20to%20schedule%20a%20pickup.%0AItem%20Model%3A%20%0ADesired%20Time%3A%20" class="schedule-btn">📅 Schedule Pickup</a>
-            <a href="sms:+16232794861?body=I%20would%20like%20to%20request%20a%20delivery.%0AItem%20Model%3A%20%0ADesired%20Time%3A%20" class="schedule-btn">🚚 Request Delivery</a>
-        </div>
-
-        <p style="font-size: 0.8rem; color: #888; margin-top: 15px; text-align: center;">*Times may vary on holidays*</p>
-    </div>
-
-    <div id="about" class="info-section">
-        <h2>About Us & Mission</h2>
-        <p><strong>Mission Statement:</strong> To provide the Peoria community with affordable, high-performance technology while reducing electronic waste through expert refurbishment.</p>
-        <p>At Gig Life Gaming, we believe quality tech should be accessible. Every machine we sell undergoes a rigorous 20-point inspection and thermal testing to ensure peak performance.</p>
-        <a href="#home" class="back-btn">↑ Back to Home</a>
-    </div>
-
-    <div class="info-section">
-        <h2>Return & Warranty</h2>
-        <div class="policy-item">
-            <strong>7-DAY CASH BACK</strong>
-            Hardware failure within 7 days is eligible for a full refund or exchange.
-        </div>
-        <div class="policy-item">
-            <strong>30-DAY HARDWARE WARRANTY</strong>
-            Covers internal components (Motherboard, RAM, CPU). Does not cover physical damage or software issues.
-        </div>
-        <div class="policy-item">
-            <strong>LOCAL PEORIA SUPPORT</strong>
-            No shipping needed. We handle all service and support right here locally.
-        </div>
-        <a href="#home" class="back-btn">↑ Back to Home</a>
-    </div>
+    <a href="products.html" class="btn">📦 VIEW INVENTORY</a>
+    <a href="web-design.html" class="btn">🔧 WEB DESIGN PACKAGES</a>
+    <a href="tel:6232794861" class="btn">📞 CALL / TEXT NOW</a>
+    <a href="https://www.facebook.com/marketplace/profile/100047045821380/" class="btn btn-fb">🌐 FACEBOOK MARKETPLACE</a>
 
     <div class="address">
         8642 W Malapai Dr, Peoria, AZ 85345<br>
         623-279-4861<br>
         giglifegaming@tutamail.com
     </div>
-</div>
-
-<div class="visitor-counter">
-    <div style="margin-bottom: 5px; color: var(--cyan);">VIEWS</div>
-    <a href="https://www.freevisitorcounter.com/en/home/stats/id/1638612" target="_blank">
-        <img src="https://www.freevisitorcounter.com/en/home/counter/1638612/t/5" border="0" alt="Free Visitor Counter">
-    </a>
 </div>
 
 </body>
