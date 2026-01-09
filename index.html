@@ -4,33 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIGLIFE GAMING | Computer Services</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
         :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; --text: #ffffff; }
         html { scroll-behavior: smooth; }
         body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
         .container { max-width: 500px; margin: auto; padding-top: 20px; }
         
-        /* Navigation */
-        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.7rem; font-weight: bold; border: 1px solid var(--cyan); padding: 5px 8px; border-radius: 5px; text-transform: uppercase; }
+        /* The Top Navigation Menu */
+        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.7rem; font-weight: bold; border: 1px solid var(--cyan); padding: 5px 8px; border-radius: 5px; text-transform: uppercase; transition: 0.3s; }
+        .nav-link:hover { background: var(--cyan); color: #000; }
         
-        /* Typography */
+        /* Specific Admin styling in Magenta (Red/Pink) */
+        .nav-admin { border-color: var(--magenta); color: var(--magenta); }
+        .nav-admin:hover { background: var(--magenta); color: #000; }
+
         h1 { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); font-size: 2.5rem; margin-bottom: 0px; text-transform: uppercase; }
         .subtitle { color: var(--magenta); font-weight: bold; font-size: 1.4rem; margin-top: 5px; margin-bottom: 30px; letter-spacing: 1px; }
         .bio { background: #111; border: 1px solid #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; line-height: 1.5; }
         
-        /* Buttons */
         .btn { display: block; border: 2px solid var(--cyan); color: var(--cyan); padding: 15px; margin-bottom: 15px; text-decoration: none; font-weight: bold; border-radius: 50px; text-transform: uppercase; transition: 0.3s; }
         .btn:hover { background: var(--cyan); color: #000; box-shadow: 0 0 20px var(--cyan); }
         .btn-magenta { border-color: var(--magenta); color: var(--magenta); }
         .btn-magenta:hover { background: var(--magenta); color: #000; box-shadow: 0 0 20px var(--magenta); }
         
-        /* Footer */
-        .footer { font-size: 0.8rem; color: #666; margin-top: 40px; margin-bottom: 20px; }
+        .footer { font-size: 0.8rem; color: #666; margin-top: 40px; }
     </style>
 </head>
 <body>
-
 <div class="container">
     <nav>
         <a href="index.html" class="nav-link">HOME</a>
@@ -38,6 +40,7 @@
         <a href="web-design.html" class="nav-link">WEB SERVICES</a>
         <a href="about.html" class="nav-link">ABOUT</a>
         <a href="warranty.html" class="nav-link">WARRANTY</a>
+        <a href="/admin/" class="nav-link nav-admin">ADMIN</a>
     </nav>
 
     <h1>GIGLIFE GAMING</h1>
@@ -53,14 +56,22 @@
     <a href="about.html" class="btn">📖 OUR MISSION</a>
     <a href="tel:6232794861" class="btn">📞 CALL / TEXT NOW</a>
 
-    <a href="/admin/" class="btn">⚙️ ADMIN DASHBOARD LOGIN</a>
-
     <div class="footer">
         8642 W Malapai Dr, Peoria, AZ 85345<br>
-        623-279-4861<br>
-        giglifegaming@tutamail.com
+        623-279-4861
     </div>
 </div>
 
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
