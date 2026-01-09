@@ -1,5 +1,5 @@
-backend:
-  name: github
+ backend:
+  name: git-gateway
   repo: giglifegamingaz/giglife-gaming-site
   branch: main
 
