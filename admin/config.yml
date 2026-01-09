@@ -3,8 +3,6 @@ backend:
   repo: giglifegamingaz/giglife-gaming-site
   branch: main
 
----
-
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
@@ -13,7 +11,6 @@ collections:
     label: "Products"
     folder: "content/products"
     create: true
-    slug: "{{slug}}"
     fields:
       - { label: "Product Name", name: "title", widget: "string" }
       - { label: "Price", name: "price", widget: "string" }
