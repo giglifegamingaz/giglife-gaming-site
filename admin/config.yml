@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: your-github-username/your-repo-name # Replace with your info
+  repo: giglifegamingaz/giglife-gaming-site
   branch: main
 
-media_folder: "images/uploads" # Where your product photos will go
+media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
@@ -12,7 +12,7 @@ collections:
     folder: "content/products"
     create: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Price", name: "price", widget: "number" }
+      - { label: "Product Name", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
       - { label: "Description", name: "body", widget: "text" }
       - { label: "Product Image", name: "image", widget: "image" }
