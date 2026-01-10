@@ -11,8 +11,10 @@ collections:
     label: "Products"
     folder: "content/products"
     create: true
+    slug: "{{slug}}"
     fields:
       - { label: "Product Name", name: "title", widget: "string" }
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Description", name: "body", widget: "text" }
       - { label: "Product Image", name: "image", widget: "image" }
+      - { label: "Cash App Link", name: "cashapp", widget: "string", hint: "Example: https://cash.app/$YourTag/500" }
