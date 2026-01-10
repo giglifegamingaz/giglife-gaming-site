@@ -6,92 +6,47 @@
     <title>GIGLIFE GAMING | Custom PCs & Web Design</title>
     <style>
         :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; --text: #ffffff; }
-        
         body { 
-            background: var(--bg); 
-            color: var(--text); 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            min-height: 100vh;
-            background-image: url('images/logo.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-            background-size: 45%;
-            background-blend-mode: overlay;
+            background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            background-image: url('images/logo.png'); background-repeat: no-repeat; background-position: center; background-attachment: fixed; background-size: 45%; background-blend-mode: overlay;
         }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 5, 5, 0.85); 
-            z-index: -1;
-        }
-        
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 5, 5, 0.85); z-index: -1; }
         nav { width: 100%; display: flex; justify-content: center; gap: 15px; padding: 20px 0; background: rgba(0,0,0,0.9); border-bottom: 1px solid #222; position: relative; z-index: 10; flex-wrap: wrap; }
-        .nav-link { color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; transition: 0.3s; padding: 5px 10px; }
-        .nav-link:hover { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
-
+        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.7rem; font-weight: bold; border: 1px solid var(--cyan); padding: 5px 8px; border-radius: 5px; text-transform: uppercase; transition: 0.3s; }
+        .nav-link:hover { background: var(--cyan); color: #000; }
         header { padding: 40px 20px 10px 20px; text-align: center; position: relative; z-index: 10; }
         h1 { font-size: 3rem; margin: 0; color: var(--cyan); text-shadow: 0 0 10px var(--cyan); text-transform: uppercase; }
         p { font-size: 1.1rem; color: #ccc; margin-top: 5px; }
-        
         .btn-container { display: flex; flex-direction: column; gap: 25px; margin-top: 50px; width: 90%; max-width: 400px; padding-bottom: 60px; position: relative; z-index: 10; }
         .btn { padding: 20px; font-size: 1rem; font-weight: bold; text-transform: uppercase; text-decoration: none; text-align: center; border-radius: 8px; transition: 0.3s; letter-spacing: 1.5px; }
-        
         .btn-cyan { border: 2px solid var(--cyan); color: var(--cyan); }
         .btn-cyan:hover { background: var(--cyan); color: #000; box-shadow: 0 0 20px var(--cyan); }
-        
         .btn-magenta { border: 2px solid var(--magenta); color: var(--magenta); }
         .btn-magenta:hover { background: var(--magenta); color: #000; box-shadow: 0 0 20px var(--magenta); }
-        
         .btn-buy { background: var(--magenta); color: #000; border: 2px solid var(--magenta); }
         .btn-buy:hover { background: transparent; color: var(--magenta); box-shadow: 0 0 25px var(--magenta); }
-
         .btn-whatsapp { border: 2px solid #25D366; color: #25D366; }
         .btn-whatsapp:hover { background: #25D366; color: #fff; box-shadow: 0 0 20px #25D366; }
     </style>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-
     <nav>
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="products.html" class="nav-link">Products</a>
         <a href="warranty.html" class="nav-link">Warranty</a>
         <a href="contact.html" class="nav-link">Contact</a>
-        <a href="/admin/" class="nav-link">Admin</a>
     </nav>
-
     <header>
         <h1>GIGLIFE GAMING</h1>
         <p>Custom Built Gaming PCs & Pro Web Design</p>
     </header>
-
     <div class="btn-container">
         <a href="https://www.facebook.com/profile.php?id=100088219586111" target="_blank" class="btn btn-cyan">CURRENT MARKETPLACE INVENTORY</a>
         <a href="products.html" class="btn btn-buy">BUY NOW</a>
         <a href="web-design.html" class="btn btn-cyan">WEB DESIGN SERVICES</a>
         <a href="about.html" class="btn btn-magenta">ABOUT OUR BUILDS</a>
-        <a href="https://wa.me/16026934442" class="btn btn-whatsapp">CHAT ON WHATSAPP</a>
+        <a href="https://wa.me/14807973475" class="btn btn-whatsapp">CHAT ON WHATSAPP</a>
     </div>
-
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
-
 </body>
 </html>
