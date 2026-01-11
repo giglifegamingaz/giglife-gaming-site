@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,57 +7,77 @@
     <title>Inventory | GIGLIFE GAMING</title>
     <style>
         :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; --text: #ffffff; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; }
-        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 15px; }
-        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.9rem; font-weight: bold; border: 1px solid var(--cyan); padding: 8px 15px; border-radius: 5px; transition: 0.3s; }
-        .nav-link:hover { background: var(--cyan); color: #000; }
-        .product-list { max-width: 800px; margin: auto; display: grid; gap: 25px; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.65rem; font-weight: bold; border: 1px solid var(--cyan); padding: 6px 8px; border-radius: 4px; text-transform: uppercase; }
+
+        .product-list { max-width: 800px; margin: auto; display: grid; gap: 25px; width: 100%; }
         .product-card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 25px; text-align: left; }
-        .product-card img { max-width: 100%; border-radius: 10px; margin-bottom: 15px; }
-        .price { color: var(--magenta); font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
-        .buy-btn { display: inline-block; background: #00d632; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .buy-btn:hover { background: #00ff3c; box-shadow: 0 0 15px #00d632; transform: scale(1.05); }
+        .product-card img { max-width: 100%; border-radius: 10px; margin-bottom: 15px; border: 1px solid #222; }
+
+        .price-text { color: var(--magenta); font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
+        .description-text { color: #ccc; line-height: 1.6; white-space: pre-line; margin-bottom: 20px; font-size: 0.95rem; }
+
+        .buy-btn { display: inline-block; background: #00d632; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; text-transform: uppercase; text-align: center; width: 100%; box-sizing: border-box; }
+
+        footer { margin-top: auto; padding: 40px 20px; text-align: center; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="nav-link">HOME</a>
-        <a href="about.html" class="nav-link">ABOUT</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="web-design.html" class="nav-link">Web Services</a>
+        <a href="warranty.html" class="nav-link">Warranty</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="/admin/" class="nav-link">Admin</a>
     </nav>
-    
-    <h1 style="color: var(--cyan); margin-bottom: 40px;">CURRENT PC INVENTORY</h1>
-    
-    <div id="products" class="product-list">
-        </div>
 
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <h1 style="color: var(--cyan); text-shadow: 0 0 10px var(--cyan);">CURRENT PC INVENTORY</h1>
+    <div id="product-container" class="product-list">Loading local inventory...</div>
+
     <script>
-        // Automatic Cash App Link Generator
-        const cashAppTag = "giglifegaming"; 
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('product-container');
 
-        fetch('/content/products/index.json')
-            .then(res => res.json())
-            .then(data => {
-                const container = document.getElementById('products');
-                if(data.length === 0) {
-                    container.innerHTML = "<p>No PCs currently in stock. Check back soon!</p>";
-                    return;
-                }
-                data.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'product-card';
-                    card.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                        <h2>${item.title}</h2>
-                        <div class="price">$${item.price}</div>
-                        <p style="line-height: 1.6; color: #ccc;">${item.body}</p>
-                        <a href="https://cash.app/$${cashAppTag}/${item.price}" target="_blank" class="buy-btn">💸 Buy Now via Cash App</a>
-                    `;
-                    container.appendChild(card);
+            // Fixed path to find your admin-saved files
+            fetch('/content/products/index.json')
+                .then(res => res.json())
+                .then(data => {
+                    container.innerHTML = "";
+                    if (!data || data.length === 0) {
+                        container.innerHTML = "<p>No PCs currently in stock. Check back soon!</p>";
+                        return;
+                    }
+
+                    data.forEach(item => {
+                        const card = document.createElement('div');
+                        card.className = 'product-card';
+
+                        // Supports both "description" and "body" labels from admin
+                        const info = item.description || item.body || "No details provided.";
+                        const priceValue = item.price ? item.price.toString().replace(/[^0-9.]/g, '') : "0";
+
+                        card.innerHTML = `
+                            <img src="${item.image}" alt="${item.title}">
+                            <h2 style="color:var(--cyan); margin:0;">${item.title}</h2>
+                            <div class="price-text">$${priceValue}</div>
+                            <div class="description-text">${info}</div>
+                            <a href="https://cash.app/$giglifegaming/${priceValue}" target="_blank" class="buy-btn">💸 Buy Now via Cash App</a>
+                        `;
+                        container.appendChild(card);
+                    });
+                })
+                .catch(err => {
+                    container.innerHTML = "<p>Add your first PC in the Admin Panel to see it here!</p>";
                 });
-            }).catch(err => {
-                document.getElementById('products').innerHTML = "<p>Add your first PC in the Admin Panel to see it here!</p>";
-            });
+        });
     </script>
+
+    <footer>
+        <p>GIGLIFE GAMING COMPUTER SERVICES LLC</p>
+        <p>8642 W Malapai Dr, Peoria, AZ 85345</p>
+    </footer>
 </body>
 </html>
