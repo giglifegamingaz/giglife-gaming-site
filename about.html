@@ -6,34 +6,49 @@
     <title>About | GIGLIFE GAMING</title>
     <style>
         :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; --text: #ffffff; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .container { max-width: 500px; margin: auto; padding-top: 20px; }
-        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.7rem; font-weight: bold; border: 1px solid var(--cyan); padding: 5px 8px; border-radius: 5px; text-transform: uppercase; }
-        h1 { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); font-size: 2.5rem; text-transform: uppercase; }
-        .content { background: #111; border: 1px solid #333; padding: 25px; border-radius: 15px; text-align: left; line-height: 1.6; }
-        .footer { font-size: 0.8rem; color: #666; margin-top: 40px; }
-        .admin-link { color: #222; text-decoration: none; font-size: 0.7rem; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.65rem; font-weight: bold; border: 1px solid var(--cyan); padding: 6px 8px; border-radius: 4px; text-transform: uppercase; }
+
+        .content-wrap { max-width: 600px; margin: 0 auto; text-align: left; line-height: 1.6; }
+        h1 { color: var(--cyan); text-transform: uppercase; text-shadow: 0 0 15px var(--cyan); text-align: center; }
+        h2 { color: var(--magenta); text-transform: uppercase; font-size: 1.2rem; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 30px; }
+
+        .highlight-box { background: #111; border-left: 4px solid var(--cyan); padding: 20px; border-radius: 0 10px 10px 0; margin: 20px 0; }
+        p { color: #ccc; margin-bottom: 15px; }
+
+        footer { margin-top: auto; padding: 40px 20px; text-align: center; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
-<div class="container">
     <nav>
-        <a href="index.html" class="nav-link">HOME</a>
-        <a href="products.html" class="nav-link">PRODUCTS</a>
-        <a href="web-design.html" class="nav-link">WEB SERVICES</a>
-        <a href="about.html" class="nav-link">ABOUT</a>
-        <a href="warranty.html" class="nav-link">WARRANTY</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="web-design.html" class="nav-link">Web Services</a>
+        <a href="warranty.html" class="nav-link">Warranty</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="/admin/" class="nav-link">Admin</a>
     </nav>
-    <h1>OUR MISSION</h1>
-    <div class="content">
-        <p><strong>GIGLIFE GAMING</strong> is dedicated to providing the Peoria community with affordable, high-performance technology.</p>
-        <p>Our mission is to reduce electronic waste by refurbishing enterprise-grade hardware and giving it a second life for gamers and local businesses.</p>
-        <p>I have been building and repairing computers for years, ensuring every machine undergoes a rigorous 20-point inspection before it reaches your desk.</p>
+
+    <div class="content-wrap">
+        <h1>OUR STORY</h1>
+
+        <div class="highlight-box">
+            <p><strong>GIGLIFE GAMING COMPUTER SERVICES LLC</strong> is built on a foundation of technical excellence. With over <strong>20 years of experience</strong> in the electrical and software engineering industry, our owner has spearheaded multiple high-level projects across the Phoenix Valley.</p>
+        </div>
+
+        <h2>WHAT WE DO</h2>
+        <p>We specialize in custom gaming PC builds, professional hardware refurbishment, and high-performance web design. Whether you are looking for a top-tier liquid-cooled rig or a reliable budget computer for work or school, we bring <strong>engineering-grade precision and two decades of field experience to every single build.</strong></p>
+
+        <h2>OUR MISSION</h2>
+        <p>Our goal is to provide the Valley with high-quality, transparent technology services. We believe that whether it's a line of code or a physical circuit board, quality should never be compromised. You can confide in us for all your hardware and software needs.</p>
+
+        <p style="text-align: center; margin-top: 40px; font-style: italic; color: var(--cyan);">Locally owned and operated in Peoria, Arizona.</p>
     </div>
-    <div class="footer">
-        <a href="/admin/" class="admin-link">Admin Login</a>
-    </div>
-</div>
+
+    <footer>
+        <p>GIGLIFE GAMING COMPUTER SERVICES LLC</p>
+        <p>8642 W Malapai Dr, Peoria, AZ 85345</p>
+    </footer>
 </body>
 </html>
