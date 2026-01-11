@@ -6,29 +6,36 @@
     <title>Contact | GIGLIFE GAMING</title>
     <style>
         :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; --text: #ffffff; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; }
-        .container { max-width: 500px; margin: auto; }
-        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; }
-        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--cyan); padding: 5px 10px; border-radius: 5px; text-transform: uppercase; }
-        h1 { color: var(--cyan); text-transform: uppercase; text-shadow: 0 0 10px var(--cyan); }
-        .contact-card { background: #111; border: 1px solid #333; padding: 25px; border-radius: 15px; margin-bottom: 20px; text-align: left; }
-        .contact-btn { display: block; text-align: center; padding: 15px; margin: 15px 0; border-radius: 8px; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.65rem; font-weight: bold; border: 1px solid var(--cyan); padding: 6px 8px; border-radius: 4px; text-transform: uppercase; }
+        h1 { color: var(--cyan); text-transform: uppercase; text-shadow: 0 0 15px var(--cyan); }
+        .motto { color: #ccc; font-style: italic; max-width: 450px; margin: 15px auto; }
+        .contact-card { background: #111; border: 1px solid #333; padding: 25px; border-radius: 15px; max-width: 400px; margin: 20px auto; text-align: left; }
+        .contact-btn { display: block; text-align: center; padding: 18px; margin: 15px 0; border-radius: 8px; text-decoration: none; font-weight: bold; text-transform: uppercase; }
         .btn-email { background: var(--cyan); color: #000; }
         .btn-whatsapp { background: #25D366; color: #fff; }
         .btn-sms { background: var(--magenta); color: #000; }
-        .contact-btn:hover { opacity: 0.8; transform: scale(1.02); }
+        footer { margin-top: auto; padding: 40px 20px; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav><a href="index.html" class="nav-link">← HOME</a></nav>
-        <h1>Contact Us</h1>
-        <div class="contact-card">
-            <p>Select an option to send a pre-filled message:</p>
-            <a href="mailto:giglifegaming@tutamail.com?subject=Inquiry&body=Hello,%20I%20am%20interested%20in..." class="contact-btn btn-email">Email Us</a>
-            <a href="https://wa.me/14807973475?text=Hello,%20I'm%20interested%20in%20a%20Custom%20PC%20or%20Web%20Design!" class="contact-btn btn-whatsapp">Message on WhatsApp</a>
-            <a href="sms:+14807973475?body=Hello,%20I%20have%20a%20question%20about%20your%20services." class="contact-btn btn-sms">Send a Text Message</a>
-        </div>
+    <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="/admin/" class="nav-link">Admin</a>
+    </nav>
+    <h1>CONTACT US</h1>
+    <p class="motto">"Whether you need expert hardware service, custom coding, or a budget-friendly computer for school or work—you can confide in us."</p>
+    <div class="contact-card">
+        <a href="mailto:giglifegaming@tutamail.com" class="contact-btn btn-email">EMAIL US</a>
+        <a href="https://wa.me/16232794861" class="contact-btn btn-whatsapp">MESSAGE ON WHATSAPP</a>
+        <a href="sms:+16232794861" class="contact-btn btn-sms">SEND A TEXT MESSAGE</a>
     </div>
+    <footer>
+        <p>GIGLIFE GAMING COMPUTER SERVICES LLC</p>
+        <p>8642 W Malapai Dr, Peoria, AZ 85345</p>
+    </footer>
 </body>
 </html>
