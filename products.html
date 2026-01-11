@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +9,16 @@
         body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; }
         nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
         .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.65rem; font-weight: bold; border: 1px solid var(--cyan); padding: 6px 8px; border-radius: 4px; text-transform: uppercase; }
-
+        
         .product-list { max-width: 800px; margin: auto; display: grid; gap: 25px; width: 100%; }
         .product-card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 25px; text-align: left; }
         .product-card img { max-width: 100%; border-radius: 10px; margin-bottom: 15px; border: 1px solid #222; }
-
+        
         .price-text { color: var(--magenta); font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
-        .description-text { color: #ccc; line-height: 1.6; white-space: pre-line; margin-bottom: 20px; font-size: 0.95rem; }
-
-        .buy-btn { display: inline-block; background: #00d632; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; text-transform: uppercase; text-align: center; width: 100%; box-sizing: border-box; }
-
+        .description-text { color: #ccc; line-height: 1.6; white-space: pre-line; margin-bottom: 20px; font-size: 0.9rem; }
+        
+        .buy-btn { display: inline-block; background: #00d632; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; text-transform: uppercase; text-align: center; }
+        
         footer { margin-top: auto; padding: 40px 20px; text-align: center; color: #666; font-size: 0.8rem; }
     </style>
 </head>
@@ -34,18 +33,25 @@
         <a href="/admin/" class="nav-link">Admin</a>
     </nav>
 
-    <h1 style="color: var(--cyan); text-shadow: 0 0 10px var(--cyan);">CURRENT PC INVENTORY</h1>
-    <div id="product-container" class="product-list">Loading local inventory...</div>
+    <h1 style="color: var(--cyan); text-shadow: 0 0 10px var(--cyan); text-transform: uppercase;">Current PC Inventory</h1>
+    
+    <div id="product-container" class="product-list">
+        <p>Scanning local inventory...</p>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('product-container');
-
-            // Fixed path to find your admin-saved files
+            
+            // This fetch looks exactly where the Admin Panel saves its product list
             fetch('/content/products/index.json')
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) throw new Error('Inventory file not found');
+                    return res.json();
+                })
                 .then(data => {
                     container.innerHTML = "";
+                    
                     if (!data || data.length === 0) {
                         container.innerHTML = "<p>No PCs currently in stock. Check back soon!</p>";
                         return;
@@ -54,23 +60,23 @@
                     data.forEach(item => {
                         const card = document.createElement('div');
                         card.className = 'product-card';
-
-                        // Supports both "description" and "body" labels from admin
-                        const info = item.description || item.body || "No details provided.";
-                        const priceValue = item.price ? item.price.toString().replace(/[^0-9.]/g, '') : "0";
-
+                        
+                        // Clean the price for the Cash App link
+                        const rawPrice = item.price.replace(/[^0-9.]/g, '');
+                        
                         card.innerHTML = `
                             <img src="${item.image}" alt="${item.title}">
-                            <h2 style="color:var(--cyan); margin:0;">${item.title}</h2>
-                            <div class="price-text">$${priceValue}</div>
-                            <div class="description-text">${info}</div>
-                            <a href="https://cash.app/$giglifegaming/${priceValue}" target="_blank" class="buy-btn">💸 Buy Now via Cash App</a>
+                            <h2 style="color:var(--cyan); margin:0; text-transform: uppercase;">${item.title}</h2>
+                            <div class="price-text">${item.price}</div>
+                            <div class="description-text">${item.description}</div>
+                            <a href="https://cash.app/$giglifegaming/${rawPrice}" target="_blank" class="buy-btn">💸 Buy Now via Cash App</a>
                         `;
                         container.appendChild(card);
                     });
                 })
                 .catch(err => {
-                    container.innerHTML = "<p>Add your first PC in the Admin Panel to see it here!</p>";
+                    console.error(err);
+                    container.innerHTML = "<p>Please add your first item in the Admin Dashboard to see it here!</p>";
                 });
         });
     </script>
