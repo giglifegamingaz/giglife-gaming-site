@@ -6,43 +6,65 @@
     <title>Web Services | GIGLIFE GAMING</title>
     <style>
         :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; --text: #ffffff; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .container { max-width: 500px; margin: auto; padding-top: 20px; }
-        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.7rem; font-weight: bold; border: 1px solid var(--cyan); padding: 5px 8px; border-radius: 5px; text-transform: uppercase; }
-        h1 { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); font-size: 2.5rem; text-transform: uppercase; }
-        .service-card { background: #111; border: 1px solid var(--magenta); padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; }
-        h3 { color: var(--magenta); margin-top: 0; }
-        .price-tag { color: var(--cyan); font-weight: bold; }
-        .btn { display: block; border: 2px solid var(--cyan); color: var(--cyan); padding: 15px; text-decoration: none; font-weight: bold; border-radius: 50px; text-transform: uppercase; margin-top: 20px; }
-        .footer { font-size: 0.8rem; color: #666; margin-top: 40px; }
-        .admin-link { color: #222; text-decoration: none; font-size: 0.7rem; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.65rem; font-weight: bold; border: 1px solid var(--cyan); padding: 6px 8px; border-radius: 4px; text-transform: uppercase; }
+
+        h1 { color: var(--cyan); text-transform: uppercase; text-shadow: 0 0 15px var(--cyan); margin-top: 20px; }
+        .intro-text { color: #ccc; margin-bottom: 30px; font-style: italic; }
+
+        .service-card { background: #111; border: 1px solid #333; padding: 25px; border-radius: 15px; max-width: 450px; margin: 15px auto; text-align: left; }
+        .service-card h3 { color: var(--magenta); margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .price-tag { color: var(--cyan); font-weight: bold; font-size: 1.1rem; display: block; margin-top: 10px; }
+
+        .portfolio-section { margin: 40px auto; max-width: 450px; }
+        .portfolio-box { background: rgba(0, 243, 255, 0.05); border: 1px solid var(--cyan); padding: 15px; border-radius: 10px; margin: 10px 0; text-align: left; }
+        .portfolio-box a { color: var(--cyan); font-weight: bold; text-decoration: none; }
+
+        .btn-quote { display: block; background: var(--cyan); color: #000; padding: 18px; text-decoration: none; font-weight: bold; border-radius: 8px; text-transform: uppercase; max-width: 400px; margin: 20px auto; transition: 0.3s; }
+        footer { margin-top: auto; padding: 40px 20px; text-align: center; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
-<div class="container">
     <nav>
-        <a href="index.html" class="nav-link">HOME</a>
-        <a href="products.html" class="nav-link">PRODUCTS</a>
-        <a href="web-design.html" class="nav-link">WEB SERVICES</a>
-        <a href="about.html" class="nav-link">ABOUT</a>
-        <a href="warranty.html" class="nav-link">WARRANTY</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="web-design.html" class="nav-link">Web Services</a>
+        <a href="warranty.html" class="nav-link">Warranty</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="/admin/" class="nav-link">Admin</a>
     </nav>
+
     <h1>WEB SERVICES</h1>
+    <p class="intro-text">Professional web solutions tailored to your business needs.</p>
+
     <div class="service-card">
-        <h3>Standard Package</h3>
-        <p>Single-page business site, mobile-responsive, and SEO optimized.</p>
-        <p class="price-tag">Starting at $100</p>
+        <h3>Basic Package</h3>
+        <p>A professional 4-page static website. Mobile-responsive and optimized for speed.</p>
+        <span class="price-tag">$99 — Includes 1 Year Free Hosting</span>
     </div>
+
     <div class="service-card">
-        <h3>E-Commerce Package</h3>
-        <p>Multi-page site with product listings and payment integration like this one.</p>
-        <p class="price-tag">Starting at $250</p>
+        <h3>Pro Dashboard Package</h3>
+        <p>Advanced 5-8 page website featuring a custom Admin Dashboard to manage your own content.</p>
+        <span class="price-tag">Starting at $225 — Includes 1 Year Free Hosting</span>
     </div>
-    <a href="mailto:giglifegaming@tutamail.com?subject=Web Design Inquiry" class="btn">Get a Quote</a>
-    <div class="footer">
-        <a href="/admin/" class="admin-link">Admin Login</a>
+
+    <div class="portfolio-section">
+        <h2 style="color: var(--text); font-size: 1.1rem;">Please check out these links for website examples:</h2>
+        <div class="portfolio-box">
+            <p style="margin:0;">Nixon Auto Body: <a href="https://nixonautobody.com" target="_blank">View Website</a></p>
+        </div>
+        <div class="portfolio-box">
+            <p style="margin:0;">John's Flowers: <a href="https://johnsflowers.netlify.app" target="_blank">View Website</a></p>
+        </div>
     </div>
-</div>
+
+    <a href="mailto:giglifegaming@tutamail.com?subject=Web Design Inquiry" class="btn-quote">Get a Quote</a>
+
+    <footer>
+        <p>GIGLIFE GAMING COMPUTER SERVICES LLC</p>
+        <p>8642 W Malapai Dr, Peoria, AZ 85345</p>
+    </footer>
 </body>
 </html>
