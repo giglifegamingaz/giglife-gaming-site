@@ -6,43 +6,26 @@
     <title>Warranty | GIGLIFE GAMING</title>
     <style>
         :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; --text: #ffffff; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; text-align: center; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; }
         .container { max-width: 500px; margin: auto; }
         nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; }
         .nav-link { color: var(--cyan); text-decoration: none; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--cyan); padding: 5px 10px; border-radius: 5px; }
-        .policy-section { background: #111; border: 1px solid #333; padding: 20px; border-radius: 15px; text-align: left; line-height: 1.6; margin-bottom: 20px; }
-        .policy-item { border-left: 3px solid var(--magenta); padding-left: 15px; margin-bottom: 20px; }
-        .policy-item strong { color: var(--magenta); display: block; text-transform: uppercase; margin-bottom: 5px; }
-        .admin-footer { margin-top: 50px; opacity: 0.3; }
-        .admin-link { color: var(--text); text-decoration: none; font-size: 0.7rem; }
+        .policy-section { background: #111; border: 1px solid #333; padding: 20px; border-radius: 15px; text-align: left; }
+        footer { margin-top: auto; padding: 40px 20px; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
     <div class="container">
         <nav><a href="index.html" class="nav-link">← HOME</a></nav>
-        
-        <h1 style="color: var(--cyan); text-transform: uppercase;">Return & Warranty</h1>
-        
+        <h1 style="color: var(--cyan);">RETURN & WARRANTY</h1>
         <div class="policy-section">
-            <div class="policy-item">
-                <strong>7-Day Cash Back</strong>
-                Hardware failure within 7 days is eligible for a full refund or exchange.
-            </div>
-            
-            <div class="policy-item">
-                <strong>30-Day Hardware Warranty</strong>
-                Covers internal components (Motherboard, RAM, CPU). Does not cover physical damage or software issues.
-            </div>
-            
-            <div class="policy-item">
-                <strong>Local Peoria Support</strong>
-                No shipping needed. We handle all service and support right here locally.
-            </div>
-        </div>
-
-        <div class="admin-footer">
-            <a href="/admin/" class="admin-link">Admin Login</a>
+            <p><strong>7-Day Cash Back:</strong> Hardware failure failure is eligible for a full refund.</p>
+            <p><strong>30-Day Hardware Warranty:</strong> Covers internal components. Physical damage or software issues not covered.</p>
         </div>
     </div>
+    <footer>
+        <p>GIGLIFE GAMING COMPUTER SERVICES LLC</p>
+        <p>8642 W Malapai Dr, Peoria, AZ 85345</p>
+    </footer>
 </body>
 </html>
