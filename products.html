@@ -4,23 +4,20 @@
         const repoOwner = "giglifegamingaz";
         const repoName = "giglife-gaming-site";
 
-        // 1. Scan the folder on GitHub for all product files
+        // This scans the folder for ANY json files
         fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/content/products`)
             .then(res => res.json())
             .then(async (files) => {
                 container.innerHTML = "";
-                
-                // Filter to only look for .json files
-                const jsonFiles = files.filter(file => file.name.endsWith('.json'));
+                const jsonFiles = files.filter(f => f.name.endsWith('.json'));
 
                 for (const file of jsonFiles) {
-                    // 2. Fetch the data inside each file
                     const res = await fetch(file.download_url);
                     const item = await res.json();
                     
                     const card = document.createElement('div');
                     card.className = 'product-card';
-                    const rawPrice = item.price.replace(/[^0-9.]/g, '');
+                    const rawPrice = item.price.toString().replace(/[^0-9.]/g, '');
                     
                     card.innerHTML = `
                         <img src="${item.image}" alt="${item.title}">
@@ -32,8 +29,8 @@
                     container.appendChild(card);
                 }
             })
-            .catch(err => {
-                container.innerHTML = "<p>Ready to add products! Use the Admin Dashboard to create your first listing.</p>";
+            .catch(() => {
+                container.innerHTML = "<p>Ready for inventory! Add products in the Admin Dashboard.</p>";
             });
     });
 </script>
