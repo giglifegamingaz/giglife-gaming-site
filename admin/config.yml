@@ -1,3 +1,11 @@
+backend:
+  name: github
+  repo: giglifegamingaz/giglife-gaming-site
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
 collections:
   - name: "products"
     label: "Products"
