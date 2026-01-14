@@ -1,36 +1,42 @@
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('product-container');
-        const repoOwner = "giglifegamingaz";
-        const repoName = "giglife-gaming-site";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory | GIGLIFE GAMING</title>
+    <style>
+        :root { --bg: #050505; --cyan: #00f3ff; --magenta: #ff00ff; }
+        body { background: var(--bg); color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 10px; }
+        nav { margin-bottom: 20px; display: flex; justify-content: center; gap: 10px; padding: 20px; }
+        .nav-link { color: var(--cyan); text-decoration: none; border: 1px solid var(--cyan); padding: 8px 15px; border-radius: 5px; font-size: 0.8rem; text-transform: uppercase; font-weight: bold; }
 
-        // This scans the folder for ANY json files
-        fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/content/products`)
-            .then(res => res.json())
-            .then(async (files) => {
-                container.innerHTML = "";
-                const jsonFiles = files.filter(f => f.name.endsWith('.json'));
+        /* THE FIX: Hides the checkout buttons and cart icons */
+        .ec-productDetails-details__action-buttons,
+        .ec-minicart,
+        .ec-cart-widget,
+        button[data-hook="add-to-cart"],
+        .ec-productDetails-details__qty {
+            display: none !important;
+        }
 
-                for (const file of jsonFiles) {
-                    const res = await fetch(file.download_url);
-                    const item = await res.json();
-                    
-                    const card = document.createElement('div');
-                    card.className = 'product-card';
-                    const rawPrice = item.price.toString().replace(/[^0-9.]/g, '');
-                    
-                    card.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                        <h2 style="color:var(--cyan); margin:0; text-transform: uppercase;">${item.title}</h2>
-                        <div class="price-text">$${rawPrice}</div>
-                        <div class="description-text">${item.body}</div>
-                        <a href="https://cash.app/$giglifegaming/${rawPrice}" target="_blank" class="buy-btn">💸 Buy Now via Cash App</a>
-                    `;
-                    container.appendChild(card);
-                }
-            })
-            .catch(() => {
-                container.innerHTML = "<p>Ready for inventory! Add products in the Admin Dashboard.</p>";
-            });
-    });
-</script>
+        .store-wrapper { max-width: 1200px; margin: auto; background: #111; padding: 15px; border-radius: 15px; border: 1px solid #333; }
+        h1 { color: var(--cyan); text-transform: uppercase; font-size: 1.8rem; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+    </nav>
+
+    <h1>CURRENT INVENTORY</h1>
+
+    <div class="store-wrapper">
+        <div id="my-store-129090252"></div>
+        <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?129090252&data_platform=code" charset="utf-8"></script>
+        <script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3)","id=my-store-129090252");</script>
+    </div>
+
+</body>
+</html>
